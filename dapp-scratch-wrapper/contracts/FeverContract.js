@@ -78,7 +78,7 @@ class FeverContract {
 
   increaseTemp () {
     if (!this.contractManager.account) return new Error('Unlock Wallet')
-    return this.FeverContract.methods.increaseTemp().send({from: this.contractManager.account})
+    return this.FeverContract.methods.increaseTemp().send({from: this.account})
     .on('transactionHash', (hash) => {
       console.log(hash)
       this.loading = true
@@ -94,7 +94,7 @@ class FeverContract {
   }
   decreaseTemp () {
     if (!this.contractManager.account) return new Error('Unlock Wallet')
-    return this.FeverContract.methods.decreaseTemp().send({from: this.contractManager.account})
+    return this.FeverContract.methods.decreaseTemp().send({from: this.account})
     .on('transactionHash', (hash) => {
       console.log(hash)
       this.loading = true
